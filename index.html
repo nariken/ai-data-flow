@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 <style>
   :root{ --bg:#f4f3ee; --card:#ffffff; --muted:#6b6a64; --text:#1c1c1a; --border:rgba(0,0,0,0.14); --soft:#f4f3ee;
-    --info-bg:#E6F1FB; --info:#0C447C; --success-bg:#EAF3DE; --success:#27500A; --warn:#854F0B; --tert:#9a998f; }
+    --info-bg:#E6F1FB; --info:#0C447C; --success-bg:#EAF3DE; --success:#27500A; --warn:#854F0B; --warn-bg:#FAEEDA; --danger:#A32D2D; --danger-bg:#FCEBEB; --tert:#9a998f; }
   @media (prefers-color-scheme: dark){ :root{ --bg:#1a1a18; --card:#242420; --muted:#a3a29a; --text:#f1efe8;
-    --border:rgba(255,255,255,0.16); --soft:#2c2c28; --info-bg:#0C447C; --info:#B5D4F4; --success-bg:#27500A; --success:#C0DD97; --warn:#FAC775; --tert:#6b6a64; } }
+    --border:rgba(255,255,255,0.16); --soft:#2c2c28; --info-bg:#0C447C; --info:#B5D4F4; --success-bg:#27500A; --success:#C0DD97; --warn:#FAC775; --warn-bg:#633806; --danger:#F7C1C1; --danger-bg:#791F1F; --tert:#6b6a64; } }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",sans-serif;
@@ -50,6 +50,34 @@
   <div class="step"><i class="ti ti-shield-check" style="font-size:22px;color:var(--success)"></i><div><div class="t">Slackに届く → あなたが承認</div><div class="d">OK / NG だけ。送信・発注・安全判断は人が握る</div></div></div>
 
   <div class="note"><i class="ti ti-bulb" style="font-size:15px;color:var(--warn)"></i> ポイント: <b style="font-weight:500;color:var(--text)">アプリの使い方は変えない</b>。"溜まったデータ"を自動で取り出してAIに渡すだけ。取り出し方（API/CSV/連携）はアプリの仕様に合わせて選びます。</div>
+
+  <div style="text-align:center;font-size:13px;color:var(--muted);margin:1.8rem 0 12px;"><i class="ti ti-eye"></i> 実際の出力イメージ（日報1日分 → AIの起案）</div>
+
+  <div style="background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:.85rem 1rem;font-size:13px;">
+    <div style="color:var(--muted);margin-bottom:6px;"><i class="ti ti-database"></i> 日報データ（例）</div>
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td style="color:var(--muted);padding:2px 0;width:84px;">現場</td><td>桜ヶ丘邸 新築</td></tr>
+      <tr><td style="color:var(--muted);padding:2px 0;">進捗</td><td>予定 60% / 実績 45%</td></tr>
+      <tr><td style="color:var(--muted);padding:2px 0;">天候</td><td>雨（午後中断）</td></tr>
+      <tr><td style="color:var(--muted);padding:2px 0;">資材</td><td>鉄筋 D16 残りわずか</td></tr>
+      <tr><td style="color:var(--muted);padding:2px 0;vertical-align:top;">特記</td><td>雨で半日中断、明日も雨予報</td></tr>
+    </table>
+  </div>
+  <div class="arr"><i class="ti ti-chevron-down"></i></div>
+  <div style="background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:.9rem 1rem;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><i class="ti ti-robot" style="font-size:18px;color:var(--info)"></i><span style="font-size:14px;font-weight:500;">AIの起案</span></div>
+    <div style="font-size:13px;margin-bottom:6px;"><span style="font-size:11px;background:var(--warn-bg);color:var(--warn);padding:2px 8px;border-radius:8px;">遅延</span> 基礎配筋が予定比 −15%、雨で2日遅延の見込み</div>
+    <div style="font-size:13px;margin-bottom:10px;"><span style="font-size:11px;background:var(--danger-bg);color:var(--danger);padding:2px 8px;border-radius:8px;">資材</span> 鉄筋 D16 が金曜分まで不足の可能性</div>
+    <div style="background:var(--soft);border-radius:8px;padding:8px 12px;font-size:13px;">
+      <div style="color:var(--info);font-weight:500;margin-bottom:4px;">対応案ドラフト</div>
+      <div style="color:var(--muted);">① 月曜の職人2名を別現場へ振替</div>
+      <div style="color:var(--muted);">② 施主へ遅延連絡（文案を用意）</div>
+      <div style="color:var(--muted);">③ D16×20本 追加発注（発注書ドラフト）</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:10px;border-top:0.5px solid var(--border);font-size:13px;color:var(--muted);">
+      <i class="ti ti-shield-check" style="font-size:16px;color:var(--success)"></i> AIは起案まで。施主連絡・発注・安全判断はあなたが承認。
+    </div>
+  </div>
 
   <p class="credit">MIWS Company OS — 「AIが会社を運営したらどうなるか」公開実験 ・ <a href="https://x.com/nariken">@nariken</a></p>
 </div>
